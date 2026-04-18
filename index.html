@@ -18,6 +18,7 @@
   --purple: #7c3aed; --purple-light: #f3e8ff; --purple-text: #6b21a8;
   --pink: #db2777; --pink-light: #fce7f3; --pink-text: #9d174d;
   --teal: #0d9488; --teal-light: #ccfbf1; --teal-text: #115e59;
+  --slate: #475569; --slate-light: #f1f5f9; --slate-text: #334155;
   --r: 14px; --r-sm: 10px; --r-xs: 6px;
   --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 12px rgba(0,0,0,0.06);
   --shadow-lg: 0 4px 24px rgba(0,0,0,0.10);
@@ -68,12 +69,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .results-header .count{font-size:0.9rem;color:var(--g500);font-weight:500;}
 .results-header .count strong{color:var(--dark);}
 
-/* ═══ CONFERENCE CALLOUT ═══ */
-.callout{background:linear-gradient(135deg,#fdf2f8 0%,#eff6ff 100%);border:1px solid var(--g200);border-radius:var(--r);padding:24px 28px;display:flex;gap:20px;align-items:center;margin-bottom:20px;}
+/* ═══ CALLOUTS ═══ */
+.callout{background:linear-gradient(135deg,#fdf2f8 0%,#eff6ff 100%);border:1px solid var(--g200);border-radius:var(--r);padding:24px 28px;display:flex;gap:20px;align-items:center;margin-bottom:12px;}
 .callout-icon{font-size:2rem;flex-shrink:0;}
 .callout h3{font-size:1rem;font-weight:700;margin-bottom:2px;}
 .callout p{font-size:0.85rem;color:var(--g500);}
 .callout .tags{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;}
+.callout-note{background:var(--slate-light);border:1px solid var(--g200);border-radius:var(--r);padding:16px 20px;margin-bottom:20px;font-size:0.85rem;color:var(--g600);display:flex;gap:12px;align-items:center;}
+.callout-note strong{color:var(--dark);}
 
 /* ═══ PROGRAM CARDS ═══ */
 .prog-list{display:flex;flex-direction:column;gap:12px;padding-bottom:16px;}
@@ -94,11 +97,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .tag-open{background:var(--green-light);color:var(--green-text);}
 .tag-research{background:var(--teal-light);color:var(--teal-text);}
 .tag-travel{background:var(--blue-light);color:var(--blue-text);}
+.tag-spots{background:var(--slate-light);color:var(--slate-text);}
+.tag-course{background:var(--teal-light);color:var(--teal-text);}
+.tag-unfunded{background:var(--g100);color:var(--g500);}
 .prog-right{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:4px;}
 .funding-badge{display:inline-block;font-size:0.78rem;font-weight:700;padding:5px 14px;border-radius:50px;white-space:nowrap;}
 .fund-full{background:var(--green-light);color:var(--green-text);}
 .fund-partial{background:var(--amber-light);color:var(--amber-text);}
 .fund-grant{background:var(--purple-light);color:var(--purple-text);}
+.fund-stipend{background:var(--teal-light);color:var(--teal-text);}
+.fund-none{background:var(--g100);color:var(--g500);}
 .funding-note{font-size:0.7rem;color:var(--g400);}
 .prog-expand{font-size:0.65rem;color:var(--g300);text-align:center;padding:0 0 6px;transition:transform 0.2s;}
 .prog.open .prog-expand{transform:rotate(180deg);}
@@ -111,20 +119,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .detail-section p,.detail-section li{font-size:0.88rem;color:var(--g700);line-height:1.7;}
 .detail-section ul{padding-left:18px;}
 .detail-section li{margin-bottom:4px;}
-
 .detail-full{grid-column:1/-1;}
-
 .testimonial{background:var(--g50);border-radius:var(--r-sm);padding:16px 20px;margin-top:4px;border-left:3px solid var(--amber);position:relative;}
 .testimonial q{font-size:0.88rem;color:var(--g700);font-style:italic;display:block;margin-bottom:6px;}
 .testimonial cite{font-size:0.78rem;color:var(--g500);font-style:normal;font-weight:600;}
 .testimonial .placeholder-note{font-size:0.72rem;color:var(--g400);font-style:italic;}
-
 .detail-cta{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;padding-top:8px;}
 .btn{padding:10px 24px;border-radius:50px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;border:none;}
 .btn-primary{background:var(--red);color:var(--white);}
 .btn-primary:hover{background:var(--red);filter:brightness(1.1);}
 .btn-secondary{background:var(--white);color:var(--g700);border:1.5px solid var(--g300);}
 .btn-secondary:hover{border-color:var(--g400);}
+.coverage-list{margin-top:8px;font-size:0.85rem;color:var(--g600);}
+.coverage-list span{display:inline-block;margin-right:12px;}
+.coverage-list span::before{content:'✓ ';color:var(--green);font-weight:700;}
 
 /* ═══ DECISION SUPPORT ═══ */
 .decision{padding:48px 0;}
@@ -186,7 +194,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   .guided-grid{grid-template-columns:1fr;}
   .path-grid{grid-template-columns:1fr;}
 }
-
 .fade-in{animation:fadeIn .3s ease;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -199,9 +206,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <h1>Go <span>Abroad</span></h1>
   <p class="sub">CMU-Q funds you to study, research, intern, compete, and explore around the world. Find the right opportunity — and take it.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="num">20+</div><div class="label">Programs</div></div>
+    <div class="hero-stat"><div class="num">60</div><div class="label">Summer spots</div></div>
     <div class="hero-stat"><div class="num">90%+</div><div class="label">Fully funded</div></div>
-    <div class="hero-stat"><div class="num">15+</div><div class="label">Countries</div></div>
+    <div class="hero-stat"><div class="num">20+</div><div class="label">Countries</div></div>
+    <div class="hero-stat"><div class="num">Unlimited</div><div class="label">Conferences</div></div>
   </div>
 </div>
 
@@ -217,22 +225,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="guided-card" data-guide="summer" onclick="applyGuide(this)">
         <div class="icon">&#9728;&#65039;</div>
         <div class="gc-title">This Summer</div>
-        <div class="gc-sub">What can I do before fall?</div>
+        <div class="gc-sub">40 international + 20 local spots</div>
       </div>
       <div class="guided-card" data-guide="research" onclick="applyGuide(this)">
         <div class="icon">&#128300;</div>
         <div class="gc-title">Research</div>
-        <div class="gc-sub">Build a research portfolio</div>
+        <div class="gc-sub">Build a portfolio for grad school</div>
       </div>
       <div class="guided-card" data-guide="travel" onclick="applyGuide(this)">
         <div class="icon">&#127758;</div>
         <div class="gc-title">Travel & Culture</div>
-        <div class="gc-sub">See the world, funded</div>
+        <div class="gc-sub">See the world, fully funded</div>
       </div>
-      <div class="guided-card" data-guide="funded" onclick="applyGuide(this)">
-        <div class="icon">&#128176;</div>
-        <div class="gc-title">Fully Funded</div>
-        <div class="gc-sub">Zero out-of-pocket options</div>
+      <div class="guided-card" data-guide="first" onclick="applyGuide(this)">
+        <div class="icon">&#128075;</div>
+        <div class="gc-title">First-timers</div>
+        <div class="gc-sub">Low-barrier, high-impact options</div>
       </div>
     </div>
   </div>
@@ -241,19 +249,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="filter-bar" id="filterBar">
     <div class="filter-inner">
       <span class="filter-label">Filter:</span>
-      <div class="filter-group" id="filterTiming">
+      <div class="filter-group">
         <button class="fbtn" data-f="timing" data-v="summer">Summer</button>
         <button class="fbtn" data-f="timing" data-v="semester">Semester</button>
         <button class="fbtn" data-f="timing" data-v="short">Short-term</button>
+        <button class="fbtn" data-f="timing" data-v="ongoing">Year-round</button>
       </div>
       <div class="filter-sep"></div>
-      <div class="filter-group" id="filterLocation">
+      <div class="filter-group">
         <button class="fbtn" data-f="location" data-v="international">International</button>
         <button class="fbtn" data-f="location" data-v="qatar">In Qatar</button>
         <button class="fbtn" data-f="location" data-v="usa">USA</button>
       </div>
       <div class="filter-sep"></div>
-      <div class="filter-group" id="filterType">
+      <div class="filter-group">
         <button class="fbtn" data-f="type" data-v="research">Research</button>
         <button class="fbtn" data-f="type" data-v="internship">Internship</button>
         <button class="fbtn" data-f="type" data-v="study">Study Abroad</button>
@@ -268,18 +277,27 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <div class="count" id="resultCount"></div>
   </div>
 
-  <!-- Conferences callout -->
+  <!-- Conferences & Competitions callout -->
   <div class="callout fade-in" id="confCallout">
     <div class="callout-icon">&#127942;</div>
     <div>
       <h3>Conferences & Competitions</h3>
-      <p>Present your work or compete at any academic conference, anywhere, anytime. Fully funded with <strong>no limit</strong> on how many you attend.</p>
+      <p>Present at any program-approved conference or compete in any academic/team competition, anywhere, anytime. <strong>No limit</strong> on how many you attend.</p>
       <div class="tags">
-        <span class="tag tag-open">Open to all</span>
+        <span class="tag tag-open">Unlimited eligibility</span>
         <span class="tag tag-where">Worldwide</span>
         <span class="tag tag-duration">Year-round</span>
       </div>
+      <div class="coverage-list">
+        <span>Air travel</span><span>Accommodation</span><span>Registration fees</span>
+      </div>
     </div>
+  </div>
+
+  <!-- Capacity note -->
+  <div class="callout-note">
+    <strong>&#128202;</strong>
+    <span><strong>Summer capacity:</strong> 40 international opportunities + 20 local opportunities per summer. Programs below show approximate spots where known. Apply early.</span>
   </div>
 
   <!-- Program list -->
@@ -309,6 +327,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="cmu-logo">Carnegie Mellon University in Qatar</div>
   <p><strong>Questions?</strong> Talk to your academic advisor or the Student Affairs office.</p>
   <p style="margin-top:8px;font-size:0.78rem;">All deadlines and details are approximate — confirm with program coordinators before applying.</p>
+  <p style="font-size:0.72rem;color:var(--g500);margin-top:4px;">Note: IMPAQT, Healthy Tartans, and Women's Empowerment trips are administered by Student Affairs and are separate from these programs.</p>
 </div>
 
 <script>
@@ -316,363 +335,490 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 // PROGRAM DATA
 // ════════════════════════════════════════════════════════════
 const P = [
-  // ── SUMMER: STUDY & LEARN ──
-  {
-    id:'eia', name:'European Innovation Academy', abbr:'EIA',
-    timing:'summer', location:'international', type:'study',
-    what:'Build a startup in a European accelerator',
-    where:'Europe (varies by year)', duration:'3–4 weeks', faculty:'Prof. Maher Hakim',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 course-based trip per career',
-    deadline:'March (approximate)', competitive:'moderate',
-    bestFor:'Aspiring entrepreneurs, students who like fast-paced team environments',
-    gains:['Startup and pitching experience','Cross-cultural teamwork','Innovation and design thinking','Real investor feedback on your ideas'],
-    eligibility:'All years and majors. Must not have used course-based travel funding previously.',
-    commitment:'Full-time for 3–4 weeks during summer',
-    logistics:'Flights, accommodation, and program fees covered. Visa support provided.',
-    testimonial:{quote:'I went in with a rough idea and came out with a real product and investor interest. The best 3 weeks of my college experience.', cite:'CMU-Q Student, Class of 2025', placeholder:true},
-    details:'An intensive summer program where you join an international cohort, develop a startup idea from scratch, build a prototype, and pitch to real investors.',
-    tags:['travel']
-  },
-  {
-    id:'intl-consulting', name:'International Consulting', abbr:'Intl Consulting',
-    timing:'summer', location:'international', type:'internship',
-    what:'Consult for international organizations on real business challenges',
-    where:'Varies by year', duration:'3–4 weeks', faculty:'Prof. Hussein Fadlallah',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 course-based trip per career',
-    deadline:'March (approximate)', competitive:'moderate',
-    bestFor:'Students interested in business strategy, management, or international development',
-    gains:['Real consulting experience with live clients','Cross-cultural communication skills','Business analysis and strategy frameworks','Faculty mentorship'],
-    eligibility:'All years and majors. Must not have used course-based travel funding previously.',
-    commitment:'Full-time for 3–4 weeks during summer',
-    logistics:'Flights, accommodation, and program fees covered. Visa support provided.',
-    testimonial:{quote:'Working with a real client in a different country taught me more about consulting than any textbook.', cite:'CMU-Q Student', placeholder:true},
-    details:'Work in teams on live consulting projects for international organizations with real client deliverables and faculty mentorship.',
-    tags:['travel']
-  },
-  {
-    id:'tech-startup', name:'Tech Startup Program', abbr:'Tech Startup',
-    timing:'summer', location:'international', type:'study',
-    what:'Go from idea to launch in an international tech startup program',
-    where:'Varies by year', duration:'3–4 weeks', faculty:'Prof. Nui',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 course-based trip per career',
-    deadline:'March (approximate)', competitive:'moderate',
-    bestFor:'CS and IS students interested in tech entrepreneurship',
-    gains:['Full startup lifecycle experience','Technical prototyping','Pitch and presentation skills','Entrepreneurial mindset'],
-    eligibility:'All years and majors. Must not have used course-based travel funding previously.',
-    commitment:'Full-time for 3–4 weeks during summer',
-    logistics:'Flights, accommodation, and program fees covered. Visa support provided.',
-    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'A hands-on course-based program focused on technology entrepreneurship — ideation, development, and launch.',
-    tags:['travel']
-  },
-  // ── SUMMER: EXPERIENCE ──
+  // ═══════════════════════════════════════
+  // SUMMER — INTERNATIONAL EXPERIENTIAL
+  // (air travel + program fees covered)
+  // Eligibility: 1 per career
+  // ═══════════════════════════════════════
   {
     id:'lcal', name:'LCAL Language & Culture Immersion', abbr:'LCAL',
     timing:'summer', location:'international', type:'cultural',
     what:'Immerse yourself in a language and culture abroad',
-    where:'Varies (past: Middle East, Asia, Europe)', duration:'4–6 weeks',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'',
-    deadline:'February (approximate)', competitive:'moderate',
+    where:'France, Germany, Spain, or Costa Rica', duration:'4–6 weeks',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 experiential trip per career',
+    deadline:'February (approximate)', competitive:'moderate', spots:'~17 applicants last cycle',
     bestFor:'Students passionate about languages, cross-cultural understanding, or area studies',
-    gains:['Language proficiency','Deep cultural immersion','Global perspective','Connections with local communities'],
-    eligibility:'All years. May require language coursework depending on destination.',
-    commitment:'Full-time during summer',
-    logistics:'Flights, accommodation, meals, and course fees covered.',
+    gains:['Language proficiency in an immersive setting','Deep cultural immersion and community connections','Global perspective and intercultural competence','Academic credit through the LCAL department'],
+    eligibility:'All years. May require language coursework depending on destination. 1 international experiential opportunity per career.',
+    commitment:'Full-time during summer, 4–6 weeks',
+    logistics:'Air travel and program fees covered by CMU-Q Education Office.',
+    covered:['Air travel','Program fees'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Run by the Department of Languages, Cultures & Applied Linguistics. Destinations change annually.',
-    tags:['travel']
+    details:'Run by the Department of Languages, Cultures & Applied Linguistics. Past and current destinations include France, Germany, Spain, and Costa Rica.'
   },
   {
-    id:'ciee-exp', name:'CIEE Summer Internship', abbr:'CIEE',
+    id:'ciee-exp', name:'CIEE International Internship', abbr:'CIEE',
     timing:'summer', location:'international', type:'internship',
-    what:'Intern or take an experiential course in a new country',
-    where:'40+ countries worldwide', duration:'4–8 weeks',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'',
-    deadline:'February (approximate)', competitive:'moderate',
+    what:'Intern or take an experiential course in South Korea, Taiwan, and more',
+    where:'South Korea, Taiwan, and others', duration:'4–8 weeks',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 experiential trip per career',
+    deadline:'February (approximate)', competitive:'moderate', spots:'27 applicants last cycle',
     bestFor:'Students who want international professional experience alongside cultural exploration',
-    gains:['Professional internship experience','International network','Cultural competency','Resume-building credentials'],
-    eligibility:'All years and majors.',
-    commitment:'Full-time during summer',
-    logistics:'Flights, accommodation, and program fees covered via CIEE partnership.',
+    gains:['Professional internship experience abroad','International network and references','Cultural competency and adaptability','Resume-building credentials'],
+    eligibility:'All years and majors. 1 international experiential opportunity per career.',
+    commitment:'Full-time during summer, 4–8 weeks',
+    logistics:'Air travel and program fees covered. CIEE provides on-ground support.',
+    covered:['Air travel','Program fees'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'The Council on International Educational Exchange offers summer internships and experiential courses across 40+ countries.',
-    tags:['travel']
+    details:'The Council on International Educational Exchange offers summer internships and experiential courses. Current destinations include South Korea and Taiwan. Note: Jordan and Morocco are also available but have had low interest.'
   },
   {
-    id:'hippocrates', name:'Hippocrates Medical Shadowing', abbr:'Hippocrates',
+    id:'hippocrates', name:'Hippocrates Clinical Shadowing', abbr:'Hippocrates',
     timing:'summer', location:'international', type:'internship',
-    what:'Shadow doctors and explore a healthcare career',
-    where:'International (varies)', duration:'2–4 weeks',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'',
-    deadline:'February (approximate)', competitive:'high',
-    bestFor:'Pre-med students, anyone considering healthcare or public health',
-    gains:['Clinical shadowing experience','Exposure to healthcare systems','Clarity on medical career path','Mentorship from practicing physicians'],
-    eligibility:'All years. Pre-med interest strongly recommended.',
-    commitment:'Full-time for 2–4 weeks',
-    logistics:'Flights and accommodation covered. May require health clearance.',
+    what:'Shadow doctors in Greece and explore a healthcare career',
+    where:'Greece', duration:'2–4 weeks',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 experiential trip per career',
+    deadline:'February (approximate)', competitive:'high', spots:'~6 students selected',
+    bestFor:'Pre-med students, anyone considering healthcare, biomedical research, or public health',
+    gains:['Clinical shadowing in hospitals and clinics','Exposure to the Greek healthcare system','Clarity on whether medicine is the right path','Mentorship from practicing physicians'],
+    eligibility:'All years. Pre-med interest strongly recommended. 1 international experiential opportunity per career.',
+    commitment:'Full-time for 2–4 weeks during summer',
+    logistics:'Air travel and program fees covered. May require health clearance.',
+    covered:['Air travel','Program fees'],
     testimonial:{quote:'Seeing medicine practiced in a completely different healthcare system changed how I think about my own career.', cite:'CMU-Q Student', placeholder:true},
-    details:'A medical shadowing program offering clinical exposure in hospital and clinic settings internationally.',
-    tags:['travel']
+    details:'A medical shadowing program in Greece offering clinical exposure in hospital and clinic settings. Approximately 6 students are selected each cycle.'
   },
   {
     id:'tcingc', name:'Technology Consulting in the Global Community', abbr:'TCinGC',
     timing:'summer', location:'international', type:'internship',
     what:'Apply your tech skills to serve communities around the world',
     where:'International (varies)', duration:'Varies',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'',
-    deadline:'March (approximate)', competitive:'moderate',
-    bestFor:'Students who want to combine tech skills with social impact',
-    gains:['Applied technology consulting','Social impact experience','Cross-cultural teamwork','Project management skills'],
-    eligibility:'All years and majors.',
-    commitment:'Varies by project',
-    logistics:'Travel and accommodation covered.',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 experiential trip per career',
+    deadline:'March (approximate)', competitive:'moderate', spots:'TBD for this cycle',
+    bestFor:'Students who want to combine technical skills with tangible social impact',
+    gains:['Applied technology consulting experience','Social impact project on your resume','Cross-cultural teamwork and communication','Project management in real-world settings'],
+    eligibility:'All years and majors. 1 international experiential opportunity per career.',
+    commitment:'Varies by project assignment',
+    logistics:'Air travel and program fees covered.',
+    covered:['Air travel','Program fees'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'A signature CMU program where student teams use technology to create tangible social impact for communities globally.',
-    tags:['travel']
+    details:'A signature CMU program where student teams use technology to create tangible social impact for communities globally. Still finalizing this cycle\'s details.'
   },
-  // ── SUMMER: RESEARCH ──
+
+  // ═══════════════════════════════════════
+  // SUMMER — EXPERIENTIAL COURSES
+  // (air travel + accommodation + tuition fully covered)
+  // Eligibility: 1 per career
+  // ═══════════════════════════════════════
   {
-    id:'sura', name:'Summer Research Apprenticeship', abbr:'SURA',
-    timing:'summer', location:'qatar', type:'research',
-    what:'Work closely with faculty on an active research project',
-    where:'Qatar (CMU-Q campus)', duration:'10 weeks', course:'99-270',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'April (approximate)', competitive:'moderate',
-    bestFor:'Students exploring whether research is for them — great first research experience',
-    gains:['Research methodology training','Faculty mentorship','Potential co-authorship','Graduate school preparation'],
-    eligibility:'All years and majors. Faculty advisor match required.',
-    commitment:'Full-time, 10 weeks during summer',
-    logistics:'Stipend provided. On-campus in Qatar.',
-    testimonial:{quote:'SURA was how I discovered I loved research. My faculty mentor became my strongest reference for grad school.', cite:'CMU-Q Student, Class of 2024', placeholder:true},
-    details:'Course 99-270. A structured apprenticeship contributing to a faculty member\'s ongoing research.',
-    tags:['research']
+    id:'eia', name:'European Innovation Academy', abbr:'EIA',
+    timing:'summer', location:'international', type:'study',
+    what:'Build a startup in a European accelerator in Porto, Portugal',
+    where:'Porto, Portugal', duration:'3–4 weeks', course:'70-417',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 course-based trip per career',
+    deadline:'March (approximate)', competitive:'moderate', spots:'6–8 students',
+    bestFor:'Aspiring entrepreneurs, students who thrive in fast-paced team environments',
+    gains:['Full startup lifecycle — ideation to investor pitch','Cross-cultural teamwork with international cohort','Innovation and design thinking frameworks','Real investor feedback on your product'],
+    eligibility:'All years and majors. Must not have used course-based travel funding previously. 1 course-based trip per career.',
+    commitment:'Full-time for 3–4 weeks during summer. Course 70-417 (includes online component).',
+    logistics:'Air travel, accommodation, and tuition fully covered by CMU-Q Education Office.',
+    covered:['Air travel','Accommodation','Tuition'],
+    testimonial:{quote:'I went in with a rough idea and came out with a real product and investor interest. The best 3 weeks of my college experience.', cite:'CMU-Q Student, Class of 2025', placeholder:true},
+    details:'An intensive summer program in Porto, Portugal. Join an international cohort, develop a startup from scratch, build a prototype, and pitch to real investors. Registered as course 70-417. Aiming for 6–8 CMU-Q students per cycle.'
   },
   {
-    id:'collab', name:'Collaborative Research', abbr:'Collab Research',
-    timing:'summer', location:'qatar', type:'research',
-    what:'Advanced cross-disciplinary research with faculty',
-    where:'Qatar (CMU-Q) or abroad', duration:'10 weeks', course:'99-500',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'April (approximate)', competitive:'high',
-    bestFor:'Students with prior research experience ready for deeper involvement',
-    gains:['Advanced research skills','Cross-disciplinary collaboration','Co-authorship opportunities','Strong grad school portfolio'],
-    eligibility:'Typically juniors/seniors or students with prior research experience.',
-    commitment:'Full-time, 10 weeks during summer',
-    logistics:'Stipend provided. May involve travel if partnered externally.',
+    id:'tech-startup', name:'Tech Startup Program', abbr:'67-275',
+    timing:'summer', location:'international', type:'study',
+    what:'In-person startup course with international travel component',
+    where:'Doha + international trip', duration:'~1 week trip (June 4–11)', course:'67-275',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 course-based trip per career',
+    deadline:'March (approximate)', competitive:'moderate', spots:'~6 students',
+    faculty:'Prof. Nui',
+    bestFor:'CS and IS students interested in tech entrepreneurship with a hands-on component',
+    gains:['Full startup lifecycle experience','Technical prototyping and product development','Pitch and presentation skills','Entrepreneurial mindset and network'],
+    eligibility:'All years and majors. Must not have used course-based travel funding previously. 1 course-based trip per career.',
+    commitment:'Course 67-275. In-person component in Doha with a trip June 4–11.',
+    logistics:'Air travel, accommodation, and tuition fully covered.',
+    covered:['Air travel','Accommodation','Tuition'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Course 99-500. For students ready for deeper research — often cross-disciplinary, with external partnerships.',
-    tags:['research']
+    details:'A hands-on course (67-275) led by Prof. Nui with an in-person component in Doha and a short international trip (June 4–11). Aiming for 6 students.'
   },
   {
-    id:'qsiurp', name:'Qatar Student Initiated Research', abbr:'QSIURP',
-    timing:'summer', location:'qatar', type:'research',
-    what:'Propose and lead your own research project',
-    where:'Qatar', duration:'10 weeks',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'March (approximate)', competitive:'high',
-    bestFor:'Independent, self-driven students with a research question they want to answer',
-    gains:['Research leadership experience','Proposal writing skills','Independent project management','Graduate school differentiator'],
-    eligibility:'All years. Must submit a research proposal.',
-    commitment:'Full-time, 10 weeks during summer',
-    logistics:'Stipend provided. On-campus.',
-    testimonial:{quote:'Writing my own research proposal was terrifying but it\'s the single best thing I did for my grad school applications.', cite:'CMU-Q Student', placeholder:true},
-    details:'You write the proposal, you lead the project. Faculty provide guidance but this is your research agenda.',
-    tags:['research']
+    id:'intl-consulting', name:'International Consulting Experience', abbr:'70-457',
+    timing:'summer', location:'international', type:'internship',
+    what:'Consult for international organizations — Spring semester course with travel',
+    where:'Qatar + Pittsburgh', duration:'Spring semester + travel', course:'70-457',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 course-based trip per career',
+    deadline:'Registration during Spring semester', competitive:'moderate', spots:'~15 students (7 Qatar, 8 Pittsburgh)',
+    faculty:'Prof. Hussein Fadlallah',
+    bestFor:'Students interested in business strategy, management, or international consulting',
+    gains:['Live client consulting experience','Cross-campus collaboration (Qatar + Pittsburgh students)','Business analysis and strategy frameworks','Faculty mentorship from Prof. Fadlallah'],
+    eligibility:'All years and majors. Must not have used course-based travel funding previously. 1 course-based trip per career.',
+    commitment:'Spring semester course (70-457) with associated travel component.',
+    logistics:'Air travel, accommodation, and tuition fully covered. Joint cohort: 7 from Qatar, 8 from Pittsburgh.',
+    covered:['Air travel','Accommodation','Tuition'],
+    testimonial:{quote:'Working with a real client alongside Pittsburgh students taught me more about consulting than any textbook.', cite:'CMU-Q Student', placeholder:true},
+    details:'A Spring semester course (70-457) led by Prof. Hussein Fadlallah. Students from Qatar and Pittsburgh collaborate on live consulting projects. Approximately 15 students total (7 Qatar, 8 Pittsburgh).'
   },
+
+  // ═══════════════════════════════════════
+  // SUMMER — INTERNATIONAL RESEARCH
+  // (air travel + accommodation covered)
+  // Eligibility: 1 per career
+  // Must be approved by Area Head, build on prior local research,
+  // and include potential for publication or conference presentation
+  // ═══════════════════════════════════════
+  {
+    id:'sri', name:'Summer Research Institute (Pittsburgh)', abbr:'SRI',
+    timing:'summer', location:'usa', type:'research',
+    what:'Spend the summer doing biology research at CMU Pittsburgh',
+    where:'Pittsburgh, USA', duration:'10 weeks',
+    funding:'full', fundingLabel:'Funded', fundingNote:'1 international research per career',
+    deadline:'February (approximate)', competitive:'high', spots:'~10 students',
+    bestFor:'Students who want the full CMU Pittsburgh research experience — especially biology/life sciences',
+    gains:['Access to CMU Pittsburgh labs and resources','Research alongside graduate students and faculty','U.S. research experience for your CV','Potential for publication or conference presentation'],
+    eligibility:'Must be approved by Area Head. Must build on previous local research experience. Should include potential for publication or conference presentation. 1 international research opportunity per career.',
+    commitment:'Full-time, 10 weeks during summer',
+    logistics:'Air travel and accommodation covered. Biology focus at Pittsburgh campus.',
+    covered:['Air travel','Accommodation'],
+    testimonial:{quote:'Being embedded in a Pittsburgh lab for the summer was a completely different level of research intensity.', cite:'CMU-Q Student, Class of 2024', placeholder:true},
+    details:'Join CMU Pittsburgh\'s Summer Research Institute with a focus on biology. Approximately 10 CMU-Q students are sent each cycle. Projects must be approved by your Area Head and demonstrate potential for publication.'
+  },
+  {
+    id:'sutd', name:'Singapore University of Technology & Design', abbr:'SUTD',
+    timing:'summer', location:'international', type:'research',
+    what:'NLP research at Singapore\'s leading technology university',
+    where:'Singapore', duration:'8–10 weeks',
+    funding:'full', fundingLabel:'Funded', fundingNote:'1 international research per career',
+    deadline:'February (approximate)', competitive:'high', spots:'~2 students',
+    bestFor:'CS/IS students with NLP or AI research interest',
+    gains:['International research experience at a top tech university','NLP and AI lab exposure','Cross-institutional collaboration','Broadened research perspective'],
+    eligibility:'Must be approved by Area Head. Must build on previous local research. Potential for publication required. 1 international research opportunity per career.',
+    commitment:'Full-time, 8–10 weeks during summer',
+    logistics:'Air travel and accommodation covered.',
+    covered:['Air travel','Accommodation'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'Research placement at SUTD\'s NLP Lab in Singapore. Very selective — approximately 2 spots per cycle. Must demonstrate prior research experience and publication potential.'
+  },
+  {
+    id:'polytechnique', name:'Ecole Polytechnique (France)', abbr:'Ecole Polytechnique',
+    timing:'summer', location:'international', type:'research',
+    what:'Research placement at one of France\'s top engineering schools',
+    where:'France', duration:'8–10 weeks',
+    funding:'full', fundingLabel:'Funded', fundingNote:'1 international research per career',
+    deadline:'February (approximate)', competitive:'high', spots:'Varies',
+    faculty:'Prof. Dyorbek',
+    bestFor:'Students interested in engineering or CS research in a European academic environment',
+    gains:['Research at a world-class French institution','International academic network','European research methodologies','Cross-cultural research collaboration'],
+    eligibility:'Must be approved by Area Head. Must build on previous local research. Publication potential required. 1 international research opportunity per career.',
+    commitment:'Full-time, 8–10 weeks during summer',
+    logistics:'Air travel and accommodation covered. Faculty connection: Prof. Dyorbek.',
+    covered:['Air travel','Accommodation'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'Research placement at Ecole Polytechnique in France, facilitated through Prof. Dyorbek. Projects must be approved by Area Head.'
+  },
+  {
+    id:'research-ext', name:'Other Student-Proposed Research', abbr:'Varies',
+    timing:'summer', location:'international', type:'research',
+    what:'Propose your own international research placement at a university abroad',
+    where:'Student-proposed (worldwide)', duration:'8–10 weeks',
+    funding:'full', fundingLabel:'Funded', fundingNote:'1 international research per career',
+    deadline:'Varies — apply early', competitive:'high', spots:'Varies',
+    bestFor:'Self-driven students with a specific research goal and an external connection or opportunity',
+    gains:['Research at a university of your choice','Complete ownership of your research agenda','International network you build yourself','Graduate school differentiator'],
+    eligibility:'Must be approved by Area Head for your major. Must build on previous local research at CMU-Q. Must include potential for publication or conference presentation. 1 international research opportunity per career.',
+    commitment:'Full-time, 8–10 weeks during summer',
+    logistics:'Air travel and accommodation covered upon approval.',
+    covered:['Air travel','Accommodation'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'You identify the opportunity, secure the lab or mentor, and propose it. If approved by your Area Head, CMU-Q covers travel and accommodation. Past students have gone to universities in Arizona, Singapore (SUTD), France (Ecole Polytechnique), and more.'
+  },
+
+  // ═══════════════════════════════════════
+  // SUMMER — LOCAL INTERNSHIP
+  // (stipend + accommodation if needed)
+  // Eligibility: 1, Cap of 10
+  // ═══════════════════════════════════════
   {
     id:'qbri', name:'Qatar Biomedical Research Institute', abbr:'QBRI',
     timing:'summer', location:'qatar', type:'research',
-    what:'Research internship in genomics, diabetes, or neuroscience',
-    where:'Qatar Foundation (Doha)', duration:'8–10 weeks',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'March (approximate)', competitive:'high',
+    what:'Research internship in genomics, diabetes, or neuroscience at Qatar Foundation',
+    where:'Qatar Foundation, Doha', duration:'Up to 10 weeks',
+    funding:'stipend', fundingLabel:'$450/wk stipend', fundingNote:'Cap of 10 local internships total',
+    deadline:'March (approximate)', competitive:'high', spots:'Part of 10-spot local internship cap',
     bestFor:'Students interested in biomedical sciences, pre-med, or bioinformatics',
-    gains:['Lab experience in a world-class facility','Biomedical research skills','Mentorship from research scientists','Publication potential'],
-    eligibility:'All years. Science background preferred.',
-    commitment:'Full-time, 8–10 weeks',
-    logistics:'Stipend provided. Located at Qatar Foundation in Doha.',
+    gains:['Lab experience in a world-class QF facility','Biomedical research skills','Mentorship from research scientists','Publication potential'],
+    eligibility:'All years. Science background preferred. 1 local internship per career. Total cap of 10 local internships across all students.',
+    commitment:'Full-time, up to 10 weeks during summer',
+    logistics:'$450/week stipend for up to 10 weeks at QBRI/QCRI or other pre-approved unpaid opportunities. Accommodation provided if non-local.',
+    covered:['$450/wk stipend (up to 10 weeks)','Accommodation if needed'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Intern at QBRI within Qatar Foundation. Work alongside researchers on genomics, diabetes, neurological disorders, and cancer.',
-    tags:['research']
+    details:'Intern at QBRI within Qatar Foundation. Work alongside researchers on genomics, diabetes, neurological disorders, and cancer. As an unpaid/pre-approved QF opportunity, you receive a $450/week CMU-Q stipend for up to 10 weeks, plus accommodation if you are non-local.'
   },
   {
     id:'qcri', name:'Qatar Computing Research Institute', abbr:'QCRI',
     timing:'summer', location:'qatar', type:'research',
-    what:'Research internship in AI, data science, or cybersecurity',
-    where:'Qatar Foundation (Doha)', duration:'8–10 weeks',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'March (approximate)', competitive:'high',
-    bestFor:'CS and IS students interested in applied AI, NLP, or cybersecurity research',
-    gains:['Cutting-edge computing research experience','AI/ML and data science skills','Research publication potential','Industry-connected mentorship'],
-    eligibility:'All years. CS or IS background preferred.',
-    commitment:'Full-time, 8–10 weeks',
-    logistics:'Stipend provided. Located at Qatar Foundation in Doha.',
+    what:'Research internship in AI, data science, or cybersecurity at Qatar Foundation',
+    where:'Qatar Foundation, Doha', duration:'Up to 10 weeks',
+    funding:'stipend', fundingLabel:'$450/wk stipend', fundingNote:'Cap of 10 local internships total',
+    deadline:'March (approximate)', competitive:'high', spots:'Part of 10-spot local internship cap',
+    bestFor:'CS and IS students interested in applied AI, Arabic NLP, or cybersecurity research',
+    gains:['Cutting-edge computing research experience','AI/ML, NLP, and data science skills','Research publication potential','Industry-connected mentorship at QF'],
+    eligibility:'All years. CS or IS background preferred. 1 local internship per career. Total cap of 10 local internships across all students.',
+    commitment:'Full-time, up to 10 weeks during summer',
+    logistics:'$450/week stipend for up to 10 weeks at QBRI/QCRI or other pre-approved unpaid opportunities. Accommodation provided if non-local.',
+    covered:['$450/wk stipend (up to 10 weeks)','Accommodation if needed'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Intern at QCRI within Qatar Foundation. Work on AI, Arabic NLP, data analytics, and cybersecurity.',
-    tags:['research']
+    details:'Intern at QCRI within Qatar Foundation. Contribute to work in artificial intelligence, Arabic NLP, data analytics, and cybersecurity. $450/week CMU-Q stipend for up to 10 weeks, plus accommodation if non-local.'
   },
   {
-    id:'sri', name:'Summer Research Institute (Pittsburgh)', abbr:'SRI',
-    timing:'summer', location:'usa', type:'research',
-    what:'Spend the summer doing research at CMU Pittsburgh',
-    where:'Pittsburgh, USA', duration:'10 weeks',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'February (approximate)', competitive:'high',
-    bestFor:'Students who want the full CMU Pittsburgh research experience before grad school',
-    gains:['Access to CMU Pittsburgh labs and resources','Research alongside graduate students','Faculty mentorship at main campus','U.S. research experience for CV'],
-    eligibility:'Typically sophomores and above with prior research experience.',
-    commitment:'Full-time, 10 weeks',
-    logistics:'Flights, housing, and stipend covered.',
-    testimonial:{quote:'Being embedded in a Pittsburgh lab for the summer was a completely different level of research intensity.', cite:'CMU-Q Student, Class of 2024', placeholder:true},
-    details:'Join CMU Pittsburgh\'s Summer Research Institute. Full access to labs, libraries, and the broader research community.',
-    tags:['research','travel']
+    id:'local-intern', name:'Local Internship (QF / Non-profit)', abbr:'Local Intern',
+    timing:'summer', location:'qatar', type:'internship',
+    what:'Internship at a QF entity or non-profit organization in Qatar',
+    where:'Qatar', duration:'Up to 10 weeks',
+    funding:'stipend', fundingLabel:'Stipend available', fundingNote:'Cap of 10 local internships total',
+    deadline:'March (approximate)', competitive:'moderate', spots:'Part of 10-spot local internship cap',
+    bestFor:'Students who want professional experience in Qatar at QF entities or non-profits',
+    gains:['Professional work experience in Qatar','Network within Qatar Foundation ecosystem','Applied skills in a real workplace','Stipend comparable to QSIURP'],
+    eligibility:'All years and majors. Must be at a QF entity or non-profit. 1 local internship per career. Cap of 10 total.',
+    commitment:'Full-time during summer, up to 10 weeks',
+    logistics:'Stipend comparable to QSIURP. Accommodation if needed. For unpaid positions at QBRI/QCRI or pre-approved opportunities: $450/wk. For low-paid positions: accommodation only.',
+    covered:['Stipend (varies by position)','Accommodation if needed'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'Internships at QF entities, QCRI, QBRI, or non-profit organizations in Qatar. Stipend is comparable to QSIURP. For unpaid pre-approved positions: $450/week for up to 10 weeks. For low-paid positions: accommodation support only. Note: CMU-Q must not encourage employers to refuse to pay for internships.'
+  },
+
+  // ═══════════════════════════════════════
+  // SUMMER — LOCAL RESEARCH
+  // Cap of 10 for accommodation
+  // Eligibility: 1 each program
+  // ═══════════════════════════════════════
+  {
+    id:'sura', name:'Summer Research Apprenticeship', abbr:'SURA',
+    timing:'summer', location:'qatar', type:'research',
+    what:'Work closely with a CMU-Q faculty member on an active research project',
+    where:'CMU-Q campus, Qatar', duration:'10 weeks', course:'99-270',
+    funding:'stipend', fundingLabel:'Stipend (FA rules)', fundingNote:'1 per career; accommodation cap of 10',
+    deadline:'April (approximate)', competitive:'moderate', spots:'Accommodation cap of 10 across SURA+QSIURP',
+    bestFor:'Students exploring whether research is for them — a great first research experience',
+    gains:['Research methodology training','One-on-one faculty mentorship','Potential for co-authorship','Solid foundation for graduate school applications'],
+    eligibility:'All years and majors. Faculty advisor match required. 1 SURA per career. Financial aid rules apply for stipend.',
+    commitment:'Full-time, 10 weeks during summer. Course 99-270.',
+    logistics:'Stipend provided (financial aid rules apply). Accommodation for non-local students (cap of 10 across local research programs).',
+    covered:['Stipend (financial aid rules apply)','Accommodation if non-local (cap of 10)'],
+    testimonial:{quote:'SURA was how I discovered I loved research. My faculty mentor became my strongest reference for grad school.', cite:'CMU-Q Student, Class of 2024', placeholder:true},
+    details:'Course 99-270. A structured summer research apprenticeship where you contribute to a faculty member\'s ongoing research at CMU-Q. Stipend follows financial aid rules. Accommodation for non-local students is available but capped at 10 spots total across SURA and QSIURP.'
   },
   {
-    id:'research-ext', name:'Partner University Research', abbr:'Arizona / Singapore',
-    timing:'summer', location:'international', type:'research',
-    what:'Research placement at a partner university abroad',
-    where:'Arizona, Singapore, and others', duration:'8–10 weeks',
-    funding:'full', fundingLabel:'Funded', fundingNote:'',
-    deadline:'Varies by partner', competitive:'high',
-    bestFor:'Students seeking international research diversity and new academic networks',
-    gains:['International research experience','New academic network','Cross-institutional collaboration','Broadened research perspective'],
-    eligibility:'Varies by partner. Typically requires faculty recommendation.',
-    commitment:'Full-time, 8–10 weeks',
-    logistics:'Flights, housing, and stipend typically covered. Details vary by partner.',
-    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'CMU-Q students have researched at universities in Arizona, Singapore, and other locations. New partnerships open regularly.',
-    tags:['research','travel']
+    id:'qsiurp', name:'Qatar Student Initiated Research', abbr:'QSIURP',
+    timing:'summer', location:'qatar', type:'research',
+    what:'Propose and lead your own research project with faculty guidance',
+    where:'Qatar', duration:'10 weeks',
+    funding:'stipend', fundingLabel:'Stipend provided', fundingNote:'1 per career; accommodation cap of 10',
+    deadline:'March (approximate)', competitive:'high', spots:'Accommodation cap of 10 across SURA+QSIURP',
+    bestFor:'Independent, self-driven students with a research question they want to answer',
+    gains:['Research leadership and proposal writing','Independent project management','Complete ownership of your research agenda','Top-tier graduate school differentiator'],
+    eligibility:'All years. Must submit a research proposal. 1 QSIURP per career.',
+    commitment:'Full-time, 10 weeks during summer',
+    logistics:'Stipend provided. Accommodation for non-local students (cap of 10 across local research programs).',
+    covered:['Stipend','Accommodation if non-local (cap of 10)'],
+    testimonial:{quote:'Writing my own research proposal was terrifying but it\'s the single best thing I did for my grad school applications.', cite:'CMU-Q Student', placeholder:true},
+    details:'You write the proposal, you lead the project. Faculty provide guidance but this is your research agenda. Stipend provided. Accommodation for non-local students is available but capped at 10 spots total across SURA and QSIURP.'
   },
-  // ── SEMESTER: STUDY ABROAD ──
+
+  // ═══════════════════════════════════════
+  // ACADEMIC YEAR — SEMESTER EXCHANGE
+  // (supplements to financial aid)
+  // Eligibility: 1 per career
+  // ═══════════════════════════════════════
   {
     id:'cmup', name:'CMU Pittsburgh Semester', abbr:'CMU-P',
     timing:'semester', location:'usa', type:'study',
     what:'Spend a full semester at CMU\'s main campus in Pittsburgh',
     where:'Pittsburgh, USA', duration:'Full semester (15 weeks)',
-    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 full-semester program per career',
+    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 semester exchange per career',
     deadline:'October for spring, April for fall (approximate)', competitive:'moderate',
-    bestFor:'Students who want the full CMU Pittsburgh experience — courses, clubs, campus life',
-    gains:['Access to all CMU colleges and courses','Campus life and networking at main campus','Career fair and recruiting access in the U.S.','Personal growth through independence'],
-    eligibility:'All years and majors. Minimum GPA may apply.',
+    bestFor:'Students who want the full CMU Pittsburgh experience — courses, clubs, career fairs, campus life',
+    gains:['Access to all CMU colleges and course catalog','Campus life and networking at main campus','U.S. career fair and recruiting access','Personal growth through independence'],
+    eligibility:'All years and majors. Minimum GPA may apply. 1 semester exchange per career.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Tuition exchange (no extra cost), housing and flights covered by grant. Visa support provided.',
+    logistics:'Supplements financial aid. Covers travel and additional costs beyond tuition exchange.',
+    covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Pittsburgh semester was the turning point of my college career. The network I built there led directly to my first job offer.', cite:'CMU-Q Student, Class of 2023', placeholder:true},
-    details:'Take courses across all CMU colleges, experience campus life, join clubs, attend career fairs, and expand your network.',
-    tags:['travel']
+    details:'Take courses across all CMU colleges, experience campus life, join clubs, attend career fairs, and expand your network. Funding supplements your existing financial aid package.'
   },
   {
     id:'wsp', name:'Washington Semester Program', abbr:'WSP',
     timing:'semester', location:'usa', type:'study',
     what:'Study policy and government in Washington, D.C.',
     where:'Washington D.C., USA', duration:'Full semester (15 weeks)',
-    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 full-semester program per career',
+    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 semester exchange per career',
     deadline:'October for spring, April for fall (approximate)', competitive:'moderate',
     bestFor:'Students interested in policy, government, political science, or public affairs',
-    gains:['Direct exposure to U.S. government and policy','Internship placements on Capitol Hill','Network in the policy world','Unique academic perspective'],
-    eligibility:'All years and majors.',
+    gains:['Direct exposure to U.S. government and policy institutions','Internship placements on Capitol Hill and think tanks','Network in the policy world','Unique academic perspective not available in Qatar'],
+    eligibility:'All years and majors. 1 semester exchange per career.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Tuition exchange, housing, and flights covered by grant. Visa support provided.',
+    logistics:'Supplements financial aid. Covers travel and additional costs.',
+    covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Immerse yourself in U.S. politics and policy with coursework, internships, and access to federal agencies and think tanks.',
-    tags:['travel']
+    details:'Immerse yourself in U.S. politics and policy with coursework, internships, and access to federal agencies and think tanks.'
   },
   {
     id:'exchange', name:'University Exchange', abbr:'Exchange',
     timing:'semester', location:'international', type:'study',
-    what:'Study at a partner university anywhere in the world',
-    where:'Partner universities worldwide', duration:'Full semester (15 weeks)',
-    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 full-semester program per career',
+    what:'Study at a partner university — King\'s College London, UCL, and more',
+    where:'KCL, UCL, and other partners worldwide', duration:'Full semester (15 weeks)',
+    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 semester exchange per career',
     deadline:'October for spring, April for fall (approximate)', competitive:'moderate',
-    bestFor:'Students who want a completely different academic and cultural environment',
-    gains:['International academic experience','Cultural immersion','New academic perspective','Global network'],
-    eligibility:'All years and majors. Minimum GPA may apply.',
+    bestFor:'Students who want a completely different academic and cultural environment for a semester',
+    gains:['International academic experience at a top university','Full cultural immersion in a new country','New academic perspectives and teaching styles','Global network of peers and faculty'],
+    eligibility:'All years and majors. Minimum GPA may apply. 1 semester exchange per career.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Tuition exchange, flights, and housing support covered by grant. Visa support provided.',
+    logistics:'Supplements financial aid. Covers travel and additional costs.',
+    covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Choose from CMU\'s network of exchange partners worldwide. Earn CMU credits in a completely different environment.',
-    tags:['travel']
+    details:'Choose from CMU\'s network of exchange partners worldwide, including King\'s College London and UCL (both under consideration). Students can also identify their own exchange destination for approval.'
   },
   {
     id:'ciee-acad', name:'CIEE Study Abroad', abbr:'CIEE',
     timing:'semester', location:'international', type:'study',
     what:'Semester-long study abroad through CIEE worldwide',
     where:'40+ countries', duration:'Full semester (15 weeks)',
-    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 full-semester program per career',
+    funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 semester exchange per career',
     deadline:'October for spring, April for fall (approximate)', competitive:'low',
-    bestFor:'Students looking for structured study abroad with strong support services',
-    gains:['Structured study abroad experience','Academic credits transfer','Cultural immersion','Support from CIEE local staff'],
-    eligibility:'All years and majors.',
+    bestFor:'Students looking for structured study abroad with strong on-ground support',
+    gains:['Structured study abroad with CIEE local staff','Academic credits that transfer to CMU','Cultural immersion with built-in support network','40+ country options'],
+    eligibility:'All years and majors. 1 semester exchange per career.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Tuition, housing, and flights covered by grant via CIEE partnership.',
+    logistics:'Supplements financial aid. Covers travel and additional costs via CIEE partnership.',
+    covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'CIEE offers semester-long study at universities and study centers across 40+ countries.',
-    tags:['travel']
+    details:'CIEE offers semester-long study at universities and study centers across 40+ countries with strong on-ground support services.'
   },
-  // ── SEMESTER: RESEARCH ──
+
+  // ═══════════════════════════════════════
+  // ACADEMIC YEAR — SEMESTER RESEARCH
+  // ═══════════════════════════════════════
   {
     id:'era', name:'Exceptional Research Award', abbr:'ERA',
     timing:'semester', location:'qatar', type:'research',
-    what:'Funding and recognition for outstanding research during the year',
+    what:'Funding and recognition for outstanding research during the academic year',
     where:'Qatar or Pittsburgh', duration:'Semester or full year',
     funding:'full', fundingLabel:'Funded', fundingNote:'',
     deadline:'Varies (check with advisor)', competitive:'high',
     bestFor:'Students already producing strong research who need support to take it further',
-    gains:['Research funding','Travel support for presentations','Recognition on transcript','Strong graduate school credential'],
+    gains:['Research funding for expenses and travel','Recognition on transcript','Travel support to present at conferences','Strong graduate school credential'],
     eligibility:'Students with demonstrated research output. Faculty nomination may be required.',
     commitment:'Part-time alongside coursework, or full-time if dedicated semester',
-    logistics:'Funding covers research expenses and travel to present findings.',
+    logistics:'Funding covers research expenses and travel to present or collaborate.',
+    covered:['Research expenses','Travel for presentations'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'The ERA supports students producing exceptional research, including funding for travel to present findings or collaborate.',
-    tags:['research']
+    details:'The ERA supports students producing exceptional research with funding, recognition, and travel support for presentations or collaboration.'
   },
   {
     id:'urop', name:'Undergraduate Research Opportunity Program', abbr:'UROP',
     timing:'semester', location:'usa', type:'research',
-    what:'Faculty-mentored research at CMU Pittsburgh',
+    what:'Faculty-mentored research at CMU Pittsburgh during the semester',
     where:'Pittsburgh, USA', duration:'Semester or full year',
     funding:'full', fundingLabel:'Funded', fundingNote:'',
     deadline:'September for fall, January for spring (approximate)', competitive:'high',
-    bestFor:'Students who want deep, mentored research at CMU\'s main campus with access to Pittsburgh resources',
+    bestFor:'Students who want deep, mentored research at CMU\'s main campus',
     gains:['Faculty mentorship at CMU Pittsburgh','Publishable research experience','Access to Pittsburgh labs and resources','Top-tier graduate school preparation'],
     eligibility:'All years. Prior research experience recommended.',
     commitment:'10–15 hrs/week alongside coursework, or full-time',
-    logistics:'Flights and housing covered. Stipend may be available.',
+    logistics:'Travel and housing covered.',
+    covered:['Travel','Housing'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'CMU\'s flagship undergraduate research program. Get matched with a faculty mentor in Pittsburgh.',
-    tags:['research','travel']
+    details:'CMU\'s flagship undergraduate research program. Get matched with a faculty mentor in Pittsburgh and contribute to publishable research.'
   },
-  // ── SHORT-TERM: CULTURAL ──
+
+  // ═══════════════════════════════════════
+  // SHORT-TERM — CULTURAL & LEADERSHIP
+  // ═══════════════════════════════════════
   {
     id:'glt', name:'Global Learning Trip', abbr:'GLT',
     timing:'short', location:'international', type:'cultural',
-    what:'Group trip focused on cultural immersion and global awareness',
-    where:'International (varies each year)', duration:'1–2 weeks',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'',
-    deadline:'Announced each semester', competitive:'low',
-    bestFor:'First-years or anyone wanting a low-commitment, high-impact travel experience',
-    gains:['Cultural immersion','Global awareness and empathy','Community engagement','New friendships across cohorts'],
-    eligibility:'All years and majors. Priority may be given to students who haven\'t traveled before.',
+    what:'Group trip to Norway, London, Japan, and more — fully funded',
+    where:'Past: Norway, London, Japan', duration:'1–2 weeks',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'50 students per year',
+    deadline:'Announced each semester', competitive:'low', spots:'~50 students/year across 3 trips',
+    bestFor:'First-years or anyone wanting a low-commitment, high-impact first travel experience',
+    gains:['Cultural immersion in a new country','Global awareness and empathy','Community engagement activities','New friendships across cohorts and majors'],
+    eligibility:'All years and majors. Priority may be given to students who haven\'t traveled before. 1 GLT per career.',
     commitment:'1–2 weeks during a semester break',
-    logistics:'Everything covered — flights, accommodation, meals, activities.',
+    logistics:'Everything covered — air travel, accommodation, provider fees, meals, and activities.',
+    covered:['Air travel','Accommodation','Provider fees','Meals & activities'],
     testimonial:{quote:'GLT was the first time I\'d ever left Qatar. It opened my eyes and made me hungry for more experiences abroad.', cite:'CMU-Q Student, Class of 2026', placeholder:true},
-    details:'Fully funded group trips during semester breaks to international destinations focused on culture and community.',
-    tags:['travel']
+    details:'Fully funded group trips during semester breaks. In 2024–2025, three trips ran to Norway, London, and Japan, with approximately 50 students participating across all trips. Note: IMPAQT, Healthy Tartans, and Women\'s Empowerment trips are administered separately by Student Affairs and do not count as GLT.'
   },
   {
     id:'tle', name:'Tartan Leadership & Engagement', abbr:'TLE',
     timing:'short', location:'international', type:'cultural',
     what:'Leadership development through travel, workshops, and team building',
-    where:'International (varies each year)', duration:'1–2 weeks',
+    where:'International (varies)', duration:'1–2 weeks',
     funding:'full', fundingLabel:'Fully funded', fundingNote:'',
     deadline:'Announced each semester', competitive:'moderate',
-    bestFor:'Students developing leadership skills and wanting structured growth with a travel component',
-    gains:['Leadership frameworks and skills','Self-awareness and reflection','Cross-cultural team building','Lasting peer network'],
+    bestFor:'Students developing leadership skills who want structured growth with a travel component',
+    gains:['Leadership frameworks and self-awareness','Structured reflection and growth','Cross-cultural team building','Lasting peer network across cohorts'],
     eligibility:'All years and majors.',
     commitment:'1–2 weeks during a semester break',
-    logistics:'Everything covered — flights, accommodation, meals, workshops.',
+    logistics:'Everything covered — air travel, accommodation, workshops, meals.',
+    covered:['Air travel','Accommodation','Workshop fees','Meals'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Combines travel with leadership workshops, structured reflections, and cross-cultural team building.',
-    tags:['travel']
+    details:'Combines travel with leadership workshops, structured reflections, and cross-cultural team building exercises. You come back a stronger leader and collaborator.'
+  },
+
+  // ═══════════════════════════════════════
+  // YEAR-ROUND / UNLIMITED
+  // ═══════════════════════════════════════
+  {
+    id:'project-courses', name:'Project Courses with Travel', abbr:'67-373 / 70-457',
+    timing:'ongoing', location:'international', type:'study',
+    what:'Course-based projects with funded travel — IS Consulting and International Consulting',
+    where:'Varies by project', duration:'Semester-long course',
+    course:'67-373 / 70-457',
+    funding:'full', fundingLabel:'Travel covered', fundingNote:'Unlimited eligibility',
+    deadline:'Course registration period', competitive:'low',
+    bestFor:'Students who want real-world project experience with a travel component built into a course',
+    gains:['Live project experience with real clients','Travel as part of coursework','Consulting and project management skills','Cross-cultural professional experience'],
+    eligibility:'All years and majors. Unlimited — no cap on how many times.',
+    commitment:'Semester-long course with travel component',
+    logistics:'Any travel expenses associated with the project course are covered.',
+    covered:['Associated travel expenses'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'Two project courses have funded travel: 67-373 Information Systems Consulting Project and 70-457 International Consulting Experience. Travel expenses for these courses are covered with unlimited eligibility.'
+  },
+  {
+    id:'research-employment', name:'Research Employment', abbr:'Research Employ.',
+    timing:'ongoing', location:'qatar', type:'research',
+    what:'Paid hourly research work on CMU-Q or CMU-P faculty projects',
+    where:'Qatar (CMU-Q) or remote (CMU-P)', duration:'Flexible',
+    funding:'stipend', fundingLabel:'Hourly wage', fundingNote:'Unlimited — tentative program',
+    deadline:'Rolling — check with faculty', competitive:'moderate',
+    bestFor:'Students who want to earn while gaining research experience on faculty-led projects',
+    gains:['Paid research experience','Faculty mentorship','Flexible schedule alongside courses','Exposure to active research projects'],
+    eligibility:'All years. Unlimited eligibility. Program is tentative.',
+    commitment:'Flexible hourly work during the semester or summer',
+    logistics:'Hourly wage. CMU-Q faculty projects paid by grants if available. CMU-P remote projects also available.',
+    covered:['Hourly wage'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'Work on CMU-Q faculty research projects (paid by grants if available) or CMU-P remote research projects. Hourly wage. Note: this program is currently tentative.'
+  },
+  {
+    id:'internship-course', name:'Internship Course', abbr:'99-410',
+    timing:'ongoing', location:'international', type:'internship',
+    what:'Register your internship for academic credit (self-funded)',
+    where:'Anywhere', duration:'Varies', course:'99-410',
+    funding:'none', fundingLabel:'Unfunded', fundingNote:'Unlimited eligibility',
+    deadline:'Course registration period', competitive:'low',
+    bestFor:'Students who have secured their own internship and want academic credit for it',
+    gains:['Academic credit for internship experience','Structured reflection on professional learning','Formal recognition on transcript','Faculty advising on your internship goals'],
+    eligibility:'All years and majors. Unlimited. Must secure your own internship.',
+    commitment:'Varies — matches your internship schedule',
+    logistics:'This course is unfunded — you arrange and fund the internship yourself. CMU-Q provides academic credit and faculty advising.',
+    covered:[],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'Course 99-410. Register your independently secured internship for academic credit. Unfunded by CMU-Q — this is for students who have found their own opportunity and want it recognized on their transcript. Unlimited eligibility.'
   }
 ];
 
@@ -680,12 +826,12 @@ const P = [
 // DECISION SUPPORT DATA
 // ════════════════════════════════════════════════════════════
 const decisions = [
-  {want:'Graduate school preparation', then:'Start with <strong>SURA</strong> (99-270) to test the waters, then move to <strong>UROP</strong> or <strong>SRI Pittsburgh</strong> for deeper experience. Aim for <strong>ERA</strong> recognition by senior year.', filter:{type:'research'}},
-  {want:'International travel and culture', then:'<strong>GLT</strong> is the easiest entry — fully funded, short commitment. Then try <strong>CIEE</strong> or <strong>LCAL</strong> for a deeper immersion. A full <strong>Exchange</strong> semester is the ultimate experience.', filter:{type:'cultural'}},
-  {want:'Industry and career readiness', then:'<strong>CIEE Summer Internship</strong> for international work experience. <strong>CMU-P</strong> for a semester gives you access to Pittsburgh career fairs and U.S. recruiting.', filter:{timing:'semester'}},
-  {want:'Entrepreneurship and startups', then:'<strong>EIA</strong> in Europe is the flagship. Pair it with <strong>Tech Startup</strong> or <strong>International Consulting</strong> in different summers.', filter:{timing:'summer'}},
-  {want:'Healthcare or medicine', then:'<strong>Hippocrates</strong> for clinical shadowing, then <strong>QBRI</strong> for biomedical research. A <strong>University Exchange</strong> at a school with a medical program rounds it out.', filter:{type:'research'}},
-  {want:'Something easy to start with', then:'<strong>GLT</strong> — it\'s short, fully funded, zero competition, and an incredible first travel experience. <strong>Conferences</strong> are also always open.', filter:{type:'cultural'}}
+  {want:'Graduate school preparation', then:'Start with <strong>SURA</strong> (99-270) to test the waters, then <strong>QCRI</strong> or <strong>QBRI</strong> locally, then <strong>SRI Pittsburgh</strong> or <strong>SUTD Singapore</strong> internationally. Aim for <strong>ERA</strong> recognition by senior year.', filter:{type:'research'}},
+  {want:'International travel and culture', then:'<strong>GLT</strong> is the easiest entry — fully funded, short, low competition (50 spots/year). Then try <strong>CIEE</strong> or <strong>LCAL</strong> in summer. A full <strong>Exchange</strong> semester (KCL, UCL, or others) is the ultimate experience.', filter:{type:'cultural'}},
+  {want:'Industry and career readiness', then:'<strong>CIEE Summer Internship</strong> for international work experience (South Korea, Taiwan). <strong>CMU-P semester</strong> gives you access to Pittsburgh career fairs and U.S. recruiting. <strong>Local internships</strong> at QF entities build your Qatar network.', filter:{type:'internship'}},
+  {want:'Entrepreneurship and startups', then:'<strong>EIA</strong> in Porto, Portugal is the flagship. Pair with <strong>67-275 Tech Startup</strong> or <strong>70-457 International Consulting</strong> in different terms. All three are fully funded course-based programs.', filter:{timing:'summer'}},
+  {want:'Healthcare or medicine', then:'<strong>Hippocrates</strong> for clinical shadowing in Greece (~6 spots). Then <strong>QBRI</strong> for biomedical research ($450/wk stipend). A <strong>University Exchange</strong> at a school with a medical program rounds it out.', filter:{type:'research'}},
+  {want:'Something easy to start with', then:'<strong>GLT</strong> — 50 spots/year, fully funded, 1–2 weeks, minimal competition. Or attend any <strong>conference</strong> — unlimited and year-round. <strong>CIEE Study Abroad</strong> for a semester has low selectivity too.', filter:{type:'cultural'}}
 ];
 
 // ════════════════════════════════════════════════════════════
@@ -696,42 +842,42 @@ const paths = [
     title:'The Researcher', css:'t-research',
     desc:'Build a publication-ready portfolio for graduate school.',
     steps:[
-      {when:'Summer Y1', name:'SURA (99-270)', type:'First research experience'},
-      {when:'Fall Y2', name:'UROP', type:'Mentored research at CMU Pittsburgh'},
-      {when:'Summer Y2', name:'QCRI or QBRI', type:'Research internship in Qatar'},
-      {when:'Summer Y3', name:'SRI Pittsburgh', type:'Deep research at main campus'},
-      {when:'Year 4', name:'ERA', type:'Exceptional Research Award recognition'}
+      {when:'Summer Y1', name:'SURA (99-270)', type:'First research experience at CMU-Q'},
+      {when:'Summer Y2', name:'QCRI or QBRI', type:'Research internship at QF ($450/wk)'},
+      {when:'Fall Y3', name:'UROP', type:'Mentored research at CMU Pittsburgh'},
+      {when:'Summer Y3', name:'SRI Pittsburgh or SUTD', type:'International research placement'},
+      {when:'Year 4', name:'ERA', type:'Exceptional Research Award + conferences'}
     ]
   },
   {
     title:'The Global Explorer', css:'t-explore',
     desc:'See the world — funded — while earning your degree.',
     steps:[
-      {when:'Year 1', name:'GLT', type:'First international trip, fully funded'},
-      {when:'Summer Y1', name:'LCAL', type:'Language & culture immersion'},
-      {when:'Spring Y2', name:'CMU-P or Exchange', type:'Full semester abroad'},
-      {when:'Summer Y3', name:'CIEE Internship', type:'International work experience'},
-      {when:'Year 4', name:'Conferences', type:'Present your work globally'}
+      {when:'Year 1', name:'GLT', type:'First trip abroad — Norway, London, or Japan'},
+      {when:'Summer Y1', name:'LCAL', type:'Language immersion in France, Germany, Spain, or Costa Rica'},
+      {when:'Spring Y2', name:'Exchange or CMU-P', type:'Full semester at KCL, UCL, Pittsburgh, etc.'},
+      {when:'Summer Y3', name:'CIEE Internship', type:'Work in South Korea or Taiwan'},
+      {when:'Year 4', name:'Conferences', type:'Present your work globally (unlimited)'}
     ]
   },
   {
     title:'The Entrepreneur', css:'t-entrepreneur',
-    desc:'Stack startup and business experience every summer.',
+    desc:'Stack startup and consulting experience every summer.',
     steps:[
-      {when:'Summer Y1', name:'Tech Startup', type:'Startup program abroad'},
-      {when:'Summer Y2', name:'EIA in Europe', type:'European Innovation Academy'},
-      {when:'Fall Y3', name:'CMU-P', type:'Pittsburgh semester — Swartz Center access'},
-      {when:'Summer Y3', name:'Intl Consulting', type:'Consult for real organizations'}
+      {when:'Summer Y1', name:'67-275 Tech Startup', type:'Startup course with international trip'},
+      {when:'Summer Y2', name:'EIA in Porto', type:'European Innovation Academy (70-417)'},
+      {when:'Spring Y3', name:'70-457 Intl Consulting', type:'Consulting with Pittsburgh cohort (15 students)'},
+      {when:'Fall Y3', name:'CMU-P Semester', type:'Pittsburgh — Swartz Center & career fairs'}
     ]
   },
   {
     title:'The Pre-Med', css:'t-premed',
     desc:'Clinical exposure + research for medical school applications.',
     steps:[
-      {when:'Summer Y1', name:'Hippocrates', type:'Medical shadowing abroad'},
-      {when:'Summer Y2', name:'QBRI', type:'Biomedical research internship'},
-      {when:'Spring Y3', name:'Exchange', type:'Semester at pre-med partner university'},
-      {when:'Summer Y3', name:'SRI or Arizona', type:'Research placement abroad'}
+      {when:'Summer Y1', name:'Hippocrates (Greece)', type:'Clinical shadowing (~6 spots)'},
+      {when:'Summer Y2', name:'QBRI', type:'Biomedical research at QF ($450/wk)'},
+      {when:'Spring Y3', name:'Exchange (KCL/UCL)', type:'Semester at a university with medical school'},
+      {when:'Summer Y3', name:'SRI Pittsburgh', type:'Biology research at main campus (10 spots)'}
     ]
   }
 ];
@@ -748,7 +894,7 @@ function getFiltered() {
   return P.filter(p => {
     if (filters.timing && p.timing !== filters.timing) return false;
     if (filters.location) {
-      if (filters.location === 'international' && (p.location === 'qatar' || p.location === 'usa')) return false;
+      if (filters.location === 'international' && p.location !== 'international') return false;
       if (filters.location === 'qatar' && p.location !== 'qatar') return false;
       if (filters.location === 'usa' && p.location !== 'usa') return false;
     }
@@ -760,12 +906,14 @@ function getFiltered() {
 function competitiveBadge(level) {
   if (level === 'high') return '<span class="tag tag-competitive">Competitive</span>';
   if (level === 'low') return '<span class="tag tag-open">Open to all</span>';
-  return '<span class="tag tag-open">Moderately selective</span>';
+  return '';
 }
 
 function fundingClass(f) {
   if (f === 'full') return 'fund-full';
   if (f === 'grant') return 'fund-grant';
+  if (f === 'stipend') return 'fund-stipend';
+  if (f === 'none') return 'fund-none';
   return 'fund-partial';
 }
 
@@ -785,15 +933,20 @@ function renderPrograms() {
   }
 
   list.innerHTML = filtered.map(p => {
-    const tagsHtml = [
+    const tags = [
       p.where ? `<span class="tag tag-where">${p.where}</span>` : '',
       p.duration ? `<span class="tag tag-duration">${p.duration}</span>` : '',
       p.deadline ? `<span class="tag tag-deadline">Deadline: ${p.deadline}</span>` : '',
       competitiveBadge(p.competitive),
-      p.course ? `<span class="tag tag-research">${p.course}</span>` : ''
+      p.spots ? `<span class="tag tag-spots">${p.spots}</span>` : '',
+      p.course ? `<span class="tag tag-course">${p.course}</span>` : ''
     ].filter(Boolean).join('');
 
     const gainsHtml = p.gains ? p.gains.map(g => `<li>${g}</li>`).join('') : '';
+
+    const coveredHtml = p.covered && p.covered.length > 0
+      ? `<div class="coverage-list">${p.covered.map(c => `<span>${c}</span>`).join('')}</div>`
+      : '';
 
     const testimonialHtml = p.testimonial ? `
       <div class="testimonial">
@@ -811,7 +964,7 @@ function renderPrograms() {
             <span class="prog-abbr">${p.abbr}</span>
           </div>
           <div class="prog-what">${p.what}</div>
-          <div class="prog-meta">${tagsHtml}</div>
+          <div class="prog-meta">${tags}</div>
         </div>
         <div class="prog-right">
           <span class="funding-badge ${fundingClass(p.funding)}">${p.fundingLabel}</span>
@@ -825,6 +978,7 @@ function renderPrograms() {
             <h4>Why this program?</h4>
             <p>${p.details}</p>
             <p style="margin-top:8px;"><strong>Best for:</strong> ${p.bestFor}</p>
+            ${coveredHtml}
           </div>
           <div class="detail-section">
             <h4>What you'll gain</h4>
@@ -852,7 +1006,6 @@ function renderPrograms() {
 
 function toggleProg(el) { el.classList.toggle('open'); }
 
-// ── Decision support ──
 function renderDecisions() {
   document.getElementById('decisionGrid').innerHTML = decisions.map(d => `
     <div class="decision-card" onclick="applyDecisionFilter(${JSON.stringify(d.filter).replace(/"/g,'&quot;')})">
@@ -871,7 +1024,6 @@ function applyDecisionFilter(f) {
   document.getElementById('filterBar').scrollIntoView({behavior:'smooth'});
 }
 
-// ── Journey paths ──
 function renderPaths() {
   document.getElementById('pathGrid').innerHTML = paths.map(p => `
     <div class="path-card ${p.css}">
@@ -908,7 +1060,6 @@ function syncFilterUI() {
   document.querySelectorAll('.fbtn').forEach(b => {
     b.classList.toggle('on', filters[b.dataset.f] === b.dataset.v);
   });
-  // clear guided cards
   document.querySelectorAll('.guided-card').forEach(c => c.classList.remove('active'));
 }
 
@@ -918,16 +1069,15 @@ function resetFilters() {
   renderPrograms();
 }
 
-// ── Guided entry cards ──
 function applyGuide(el) {
   resetFilters();
   document.querySelectorAll('.guided-card').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
-  const guide = el.dataset.guide;
-  if (guide === 'summer') filters.timing = 'summer';
-  else if (guide === 'research') filters.type = 'research';
-  else if (guide === 'travel') filters.type = 'cultural';
-  else if (guide === 'funded') { /* all are funded, just show all */ }
+  const g = el.dataset.guide;
+  if (g === 'summer') filters.timing = 'summer';
+  else if (g === 'research') filters.type = 'research';
+  else if (g === 'travel') filters.type = 'cultural';
+  else if (g === 'first') { filters.timing = 'short'; }
   syncFilterUI();
   renderPrograms();
   document.getElementById('filterBar').scrollIntoView({behavior:'smooth'});
