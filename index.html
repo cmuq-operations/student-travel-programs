@@ -208,7 +208,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="hero-stats">
     <div class="hero-stat"><div class="num">60</div><div class="label">Summer spots</div></div>
     <div class="hero-stat"><div class="num">90%+</div><div class="label">Fully funded</div></div>
-    <div class="hero-stat"><div class="num">20+</div><div class="label">Countries</div></div>
+    <div class="hero-stat"><div class="num">25+</div><div class="label">Programs</div></div>
     <div class="hero-stat"><div class="num">Unlimited</div><div class="label">Conferences</div></div>
   </div>
 </div>
@@ -281,17 +281,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   <div class="callout fade-in" id="confCallout">
     <div class="callout-icon">&#127942;</div>
     <div>
-      <h3>Conferences & Competitions</h3>
-      <p>Present at any program-approved conference or compete in any academic/team competition, anywhere, anytime. <strong>No limit</strong> on how many you attend.</p>
+      <h3>Academic Conferences, Competitions & Awards</h3>
+      <p>Present your research or compete at any program-approved academic event, anywhere, anytime. <strong>No limit</strong> on how many you attend — requires Area Head approval. Examples: Putnam Competition, ACPC, Swartz Scholars, and more.</p>
       <div class="tags">
-        <span class="tag tag-open">Unlimited eligibility</span>
+        <span class="tag tag-open">Unlimited — no cap</span>
         <span class="tag tag-where">Worldwide</span>
         <span class="tag tag-duration">Year-round</span>
       </div>
       <div class="coverage-list">
         <span>Air travel</span><span>Accommodation</span><span>Registration fees</span>
       </div>
+      <p style="font-size:0.78rem;color:var(--g500);margin-top:6px;">Contact: Lubna Barghouti for more information.</p>
     </div>
+  </div>
+
+  <!-- Policy note -->
+  <div class="callout-note">
+    <strong>&#9888;&#65039;</strong>
+    <span><strong>Important:</strong> No student is guaranteed a travel opportunity — students are selected based on the strength of their application. To ensure fair access, most programs are limited to <strong>1 per academic career</strong> per category.</span>
   </div>
 
   <!-- Capacity note -->
@@ -325,9 +332,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <!-- ═══ FOOTER ═══ -->
 <div class="footer">
   <div class="cmu-logo">Carnegie Mellon University in Qatar</div>
-  <p><strong>Questions?</strong> Talk to your academic advisor or the Student Affairs office.</p>
-  <p style="margin-top:8px;font-size:0.78rem;">All deadlines and details are approximate — confirm with program coordinators before applying.</p>
-  <p style="font-size:0.72rem;color:var(--g500);margin-top:4px;">Note: IMPAQT, Healthy Tartans, and Women's Empowerment trips are administered by Student Affairs and are separate from these programs.</p>
+  <p><strong>Questions?</strong></p>
+  <p style="font-size:0.85rem;margin-top:4px;"><strong>Experiential travel & conferences:</strong> Lubna Barghouti</p>
+  <p style="font-size:0.85rem;"><strong>Study abroad & campus exchange:</strong> Meredith Lu, Student Affairs</p>
+  <p style="font-size:0.85rem;"><strong>Page owner:</strong> Khalid Sarwar Warraich</p>
+  <p style="margin-top:12px;font-size:0.78rem;">All deadlines and details are approximate — confirm with program coordinators before applying.</p>
+  <p style="font-size:0.72rem;color:var(--g500);margin-top:4px;">Official Scotty page: scotty.qatar.cmu.edu/student-travel</p>
 </div>
 
 <script>
@@ -402,7 +412,23 @@ const P = [
     logistics:'Air travel and program fees covered.',
     covered:['Air travel','Program fees'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'A signature CMU program where student teams use technology to create tangible social impact for communities globally. Still finalizing this cycle\'s details.'
+    details:'A signature CMU program where student teams use technology to create tangible social impact for communities globally. Still finalizing this cycle\'s details. Contact: Lubna Barghouti for more information.'
+  },
+  {
+    id:'swartz', name:'Swartz Innovation Scholar', abbr:'Swartz',
+    timing:'summer', location:'international', type:'internship',
+    what:'Innovation and entrepreneurship program through the Swartz Center',
+    where:'Varies', duration:'6 weeks – 2 months',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 experiential trip per career',
+    deadline:'Check with Lubna Barghouti', competitive:'moderate', spots:'TBD',
+    bestFor:'Students with strong entrepreneurial or innovation interests looking for a structured summer experience',
+    gains:['Innovation and entrepreneurship training','Mentorship from Swartz Center network','Portfolio-building project experience','Network with CMU\'s innovation ecosystem'],
+    eligibility:'All years and majors. 1 international experiential opportunity per career. Selection based on strength of application.',
+    commitment:'6 weeks to 2 months during summer',
+    logistics:'Air travel and program fees covered. Contact: Lubna Barghouti.',
+    covered:['Air travel','Program fees'],
+    testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
+    details:'An experiential travel opportunity connected to the Swartz Center for Entrepreneurship. Details and destinations vary by year. Contact Lubna Barghouti for current cycle information.'
   },
 
   // ═══════════════════════════════════════
@@ -634,18 +660,18 @@ const P = [
   {
     id:'cmup', name:'CMU Pittsburgh Semester', abbr:'CMU-P',
     timing:'semester', location:'usa', type:'study',
-    what:'Spend a full semester at CMU\'s main campus in Pittsburgh',
-    where:'Pittsburgh, USA', duration:'Full semester (15 weeks)',
+    what:'Spend a fall, spring, or summer semester at CMU\'s main campus in Pittsburgh',
+    where:'Pittsburgh, USA', duration:'Full semester (fall, spring, or summer)',
     funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 semester exchange per career',
     deadline:'October for spring, April for fall (approximate)', competitive:'moderate',
     bestFor:'Students who want the full CMU Pittsburgh experience — courses, clubs, career fairs, campus life',
     gains:['Access to all CMU colleges and course catalog','Campus life and networking at main campus','U.S. career fair and recruiting access','Personal growth through independence'],
-    eligibility:'All years and majors. Minimum GPA may apply. 1 semester exchange per career.',
-    commitment:'Full semester, 15 weeks',
-    logistics:'Supplements financial aid. Covers travel and additional costs beyond tuition exchange.',
+    eligibility:'All years and majors. Minimum GPA may apply. 1 semester study abroad per academic career. Selection based on strength of application.',
+    commitment:'Full semester — available in fall, spring, or summer',
+    logistics:'Supplements financial aid. Covers travel and additional costs beyond tuition exchange. Contact: Meredith Lu in Student Affairs.',
     covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Pittsburgh semester was the turning point of my college career. The network I built there led directly to my first job offer.', cite:'CMU-Q Student, Class of 2023', placeholder:true},
-    details:'Take courses across all CMU colleges, experience campus life, join clubs, attend career fairs, and expand your network. Funding supplements your existing financial aid package.'
+    details:'Take courses across all CMU colleges, experience campus life, join clubs, attend career fairs, and expand your network. Available in fall, spring, or summer semesters. Funding supplements your existing financial aid package. Contact Meredith Lu in Student Affairs for more information.'
   },
   {
     id:'wsp', name:'Washington Semester Program', abbr:'WSP',
@@ -656,28 +682,28 @@ const P = [
     deadline:'October for spring, April for fall (approximate)', competitive:'moderate',
     bestFor:'Students interested in policy, government, political science, or public affairs',
     gains:['Direct exposure to U.S. government and policy institutions','Internship placements on Capitol Hill and think tanks','Network in the policy world','Unique academic perspective not available in Qatar'],
-    eligibility:'All years and majors. 1 semester exchange per career.',
+    eligibility:'All years and majors. 1 semester study abroad per academic career. Selection based on strength of application.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Supplements financial aid. Covers travel and additional costs.',
+    logistics:'Supplements financial aid. Covers travel and additional costs. Contact: Meredith Lu in Student Affairs.',
     covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Immerse yourself in U.S. politics and policy with coursework, internships, and access to federal agencies and think tanks.'
+    details:'Immerse yourself in U.S. politics and policy with coursework, internships, and access to federal agencies and think tanks. Contact Meredith Lu in Student Affairs.'
   },
   {
-    id:'exchange', name:'University Exchange', abbr:'Exchange',
+    id:'exchange', name:'University Exchange / Student Defined Study Abroad', abbr:'Exchange',
     timing:'semester', location:'international', type:'study',
-    what:'Study at a partner university — King\'s College London, UCL, and more',
-    where:'KCL, UCL, and other partners worldwide', duration:'Full semester (15 weeks)',
+    what:'Study at KCL, UCL, or define your own study abroad at any university worldwide',
+    where:'KCL, UCL, or student-defined destination', duration:'Full semester (15 weeks)',
     funding:'grant', fundingLabel:'Grant-based', fundingNote:'1 semester exchange per career',
     deadline:'October for spring, April for fall (approximate)', competitive:'moderate',
     bestFor:'Students who want a completely different academic and cultural environment for a semester',
     gains:['International academic experience at a top university','Full cultural immersion in a new country','New academic perspectives and teaching styles','Global network of peers and faculty'],
-    eligibility:'All years and majors. Minimum GPA may apply. 1 semester exchange per career.',
+    eligibility:'All years and majors. Minimum GPA may apply. 1 semester study abroad per academic career. Selection based on strength of application.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Supplements financial aid. Covers travel and additional costs.',
+    logistics:'Supplements financial aid. Covers travel and additional costs. Contact: Meredith Lu in Student Affairs.',
     covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Choose from CMU\'s network of exchange partners worldwide, including King\'s College London and UCL (both under consideration). Students can also identify their own exchange destination for approval.'
+    details:'Choose from CMU\'s partner universities (including King\'s College London and UCL, both under consideration), or create your own path with a Student Defined External Study Abroad — you identify the university and program, and if approved, CMU-Q provides the same financial support. Contact Meredith Lu in Student Affairs.'
   },
   {
     id:'ciee-acad', name:'CIEE Study Abroad', abbr:'CIEE',
@@ -688,12 +714,12 @@ const P = [
     deadline:'October for spring, April for fall (approximate)', competitive:'low',
     bestFor:'Students looking for structured study abroad with strong on-ground support',
     gains:['Structured study abroad with CIEE local staff','Academic credits that transfer to CMU','Cultural immersion with built-in support network','40+ country options'],
-    eligibility:'All years and majors. 1 semester exchange per career.',
+    eligibility:'All years and majors. 1 semester study abroad per academic career. Selection based on strength of application.',
     commitment:'Full semester, 15 weeks',
-    logistics:'Supplements financial aid. Covers travel and additional costs via CIEE partnership.',
+    logistics:'Supplements financial aid. Covers travel and additional costs via CIEE partnership. Contact: Meredith Lu in Student Affairs.',
     covered:['Financial aid supplement','Travel costs'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'CIEE offers semester-long study at universities and study centers across 40+ countries with strong on-ground support services.'
+    details:'CIEE offers semester-long study at universities and study centers across 40+ countries with strong on-ground support services. Contact Meredith Lu in Student Affairs.'
   },
 
   // ═══════════════════════════════════════
@@ -738,34 +764,34 @@ const P = [
   {
     id:'glt', name:'Global Learning Trip', abbr:'GLT',
     timing:'short', location:'international', type:'cultural',
-    what:'Group trip to Norway, London, Japan, and more — fully funded',
-    where:'Past: Norway, London, Japan', duration:'1–2 weeks',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'50 students per year',
+    what:'Interdisciplinary 6-day trips — AI, sustainability, culture, and more',
+    where:'Past: Norway, London, Japan', duration:'6 days',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'~50 students/year; 1 per career',
     deadline:'Announced each semester', competitive:'low', spots:'~50 students/year across 3 trips',
     bestFor:'First-years or anyone wanting a low-commitment, high-impact first travel experience',
-    gains:['Cultural immersion in a new country','Global awareness and empathy','Community engagement activities','New friendships across cohorts and majors'],
-    eligibility:'All years and majors. Priority may be given to students who haven\'t traveled before. 1 GLT per career.',
-    commitment:'1–2 weeks during a semester break',
+    gains:['Interdisciplinary learning beyond the classroom','Cultural immersion and global awareness','Community engagement and diverse perspectives','New friendships across cohorts and majors'],
+    eligibility:'All years and majors. 1 GLT per academic career. Selection based on strength of application.',
+    commitment:'6 days during the academic year',
     logistics:'Everything covered — air travel, accommodation, provider fees, meals, and activities.',
     covered:['Air travel','Accommodation','Provider fees','Meals & activities'],
     testimonial:{quote:'GLT was the first time I\'d ever left Qatar. It opened my eyes and made me hungry for more experiences abroad.', cite:'CMU-Q Student, Class of 2026', placeholder:true},
-    details:'Fully funded group trips during semester breaks. In 2024–2025, three trips ran to Norway, London, and Japan, with approximately 50 students participating across all trips. Note: IMPAQT, Healthy Tartans, and Women\'s Empowerment trips are administered separately by Student Affairs and do not count as GLT.'
+    details:'Interdisciplinary, 6-day trips during the academic year focused on a wide range of interests that engage students beyond the classroom. Past themes include "AI Economies of the Future" and "Sustainability and Perception." In 2024–2025, three trips ran to Norway, London, and Japan (~50 students total). GLTs support the CMUQ Strategic Plan goals of diversity, inclusion, impact, and creativity. Note: IMPAQT, Healthy Tartans, and Women\'s Empowerment trips are TLE, not GLT.'
   },
   {
     id:'tle', name:'Tartan Leadership & Engagement', abbr:'TLE',
     timing:'short', location:'international', type:'cultural',
-    what:'Leadership development through travel, workshops, and team building',
-    where:'International (varies)', duration:'1–2 weeks',
-    funding:'full', fundingLabel:'Fully funded', fundingNote:'',
+    what:'Leadership trips — IMPAQT, Healthy Tartans, Women\'s Empowerment, Service Learning',
+    where:'International (varies)', duration:'Varies',
+    funding:'full', fundingLabel:'Fully funded', fundingNote:'1 per academic career',
     deadline:'Announced each semester', competitive:'moderate',
-    bestFor:'Students developing leadership skills who want structured growth with a travel component',
-    gains:['Leadership frameworks and self-awareness','Structured reflection and growth','Cross-cultural team building','Lasting peer network across cohorts'],
-    eligibility:'All years and majors.',
-    commitment:'1–2 weeks during a semester break',
-    logistics:'Everything covered — air travel, accommodation, workshops, meals.',
+    bestFor:'Students developing leadership skills who want structured growth with a travel and service component',
+    gains:['Leadership development through pre-travel workshops','Unique experiential travel with a service commitment','Cross-cultural team building and self-awareness','Commitment to serve in a leadership capacity upon return to campus'],
+    eligibility:'All years and majors. 1 TLE per academic career. Selection based on strength of application.',
+    commitment:'Includes pre-travel workshops + trip + post-trip leadership commitment on campus',
+    logistics:'Everything covered — air travel, accommodation, workshops, meals. Administered by Student Affairs.',
     covered:['Air travel','Accommodation','Workshop fees','Meals'],
     testimonial:{quote:'Placeholder — add a real student quote here.', cite:'', placeholder:true},
-    details:'Combines travel with leadership workshops, structured reflections, and cross-cultural team building exercises. You come back a stronger leader and collaborator.'
+    details:'TLE experiences focus on enhancing undergraduate leadership through pre-travel workshops, unique experiential travel, and a commitment to serve in a leadership capacity upon return. Examples include IMPAQT, Healthy Tartans (Engage in Holistic Health), Women\'s Leadership/Empowerment, and Service Learning Trips. Administered by Student Affairs. Supports CMUQ Strategic Plan goals of diversity, inclusion, and community impact.'
   },
 
   // ═══════════════════════════════════════
