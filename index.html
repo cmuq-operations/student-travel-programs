@@ -70,7 +70,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .results-header .count strong{color:var(--dark);}
 
 /* ═══ CALLOUTS ═══ */
-.callout{background:linear-gradient(135deg,#fdf2f8 0%,#eff6ff 100%);border:1px solid var(--g200);border-radius:var(--r);padding:24px 28px;display:flex;gap:20px;align-items:center;margin-bottom:12px;}
+.callout{background:linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 40%,#f0fdfa 100%);border:1px solid #99f6e4;border-left:4px solid #0d9488;border-radius:var(--r);padding:24px 28px;display:flex;gap:20px;align-items:center;margin-bottom:12px;}
 .callout-icon{font-size:2rem;flex-shrink:0;}
 .callout h3{font-size:1rem;font-weight:700;margin-bottom:2px;}
 .callout p{font-size:0.85rem;color:var(--g500);}
@@ -80,8 +80,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
 /* ═══ PROGRAM CARDS ═══ */
 .prog-list{display:flex;flex-direction:column;gap:12px;padding-bottom:16px;}
-.prog{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;transition:box-shadow 0.2s;}
+.prog{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;transition:box-shadow 0.2s;border-left:4px solid var(--g200);}
 .prog:hover{box-shadow:var(--shadow-lg);}
+.prog.t-summer{border-left-color:#f59e0b;background:linear-gradient(90deg,#fffbeb 0%,var(--white) 8%);}
+.prog.t-semester{border-left-color:#2563eb;background:linear-gradient(90deg,#eff6ff 0%,var(--white) 8%);}
+.prog.t-short{border-left-color:#8b5cf6;background:linear-gradient(90deg,#f5f3ff 0%,var(--white) 8%);}
+.prog.t-ongoing{border-left-color:#0d9488;background:linear-gradient(90deg,#f0fdfa 0%,var(--white) 8%);}
+
+/* Timing legend */
+.timing-legend{display:flex;gap:16px;flex-wrap:wrap;padding:0 0 8px;justify-content:center;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:600;color:var(--g600);}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.legend-dot.l-summer{background:#f59e0b;}
+.legend-dot.l-semester{background:#2563eb;}
+.legend-dot.l-short{background:#8b5cf6;}
+.legend-dot.l-ongoing{background:#0d9488;}
 .prog-top{padding:20px 24px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;}
 .prog-main{min-width:0;}
 .prog-name-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px;}
@@ -301,6 +314,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
  <span><strong>Important:</strong> No student is guaranteed a travel opportunity — students are selected based on the strength of their application. To ensure fair access, most programs are limited to <strong>1 per academic career</strong> per category.</span>
  </div>
 
+
+ <!-- Timing legend -->
+ <div class="timing-legend">
+   <div class="legend-item"><div class="legend-dot l-summer"></div>Summer</div>
+   <div class="legend-item"><div class="legend-dot l-semester"></div>Semester</div>
+   <div class="legend-item"><div class="legend-dot l-short"></div>Short-term</div>
+   <div class="legend-item"><div class="legend-dot l-ongoing"></div>Year-round</div>
+ </div>
 
  <!-- Program list -->
  <div class="prog-list" id="progList"></div>
@@ -974,7 +995,7 @@ function renderPrograms() {
  </div>` : '';
 
  return `
- <div class="prog fade-in" onclick="toggleProg(this)">
+ <div class="prog fade-in t-${p.timing}" onclick="toggleProg(this)">
  <div class="prog-top">
  <div class="prog-main">
  <div class="prog-name-row">
