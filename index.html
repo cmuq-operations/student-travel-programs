@@ -54,15 +54,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 
 /* ═══ FILTERS ═══ */
 .filter-bar{padding:24px 0 8px;position:sticky;top:0;z-index:100;background:var(--g50);}
-.filter-inner{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
-.filter-label{font-size:0.8rem;font-weight:700;color:var(--g500);margin-right:4px;}
+.filter-inner{background:var(--dark);border-radius:var(--r);box-shadow:var(--shadow-lg);padding:14px 20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:0.8rem;font-weight:700;color:var(--g400);margin-right:4px;}
 .filter-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
-.fbtn{padding:6px 14px;border:1.5px solid var(--g200);border-radius:50px;font-size:0.78rem;font-weight:600;cursor:pointer;background:var(--white);color:var(--g600);transition:all 0.15s;white-space:nowrap;}
-.fbtn:hover{border-color:var(--g300);background:var(--g50);}
-.fbtn.on{border-color:var(--dark);background:var(--dark);color:var(--white);}
-.filter-sep{width:1px;height:24px;background:var(--g200);margin:0 6px;}
-.filter-reset{padding:6px 14px;border:none;border-radius:50px;font-size:0.78rem;font-weight:600;cursor:pointer;background:var(--g100);color:var(--g500);margin-left:auto;transition:all 0.15s;}
-.filter-reset:hover{background:var(--red-light);color:var(--red);}
+.fbtn{padding:6px 14px;border:1.5px solid rgba(255,255,255,0.15);border-radius:50px;font-size:0.78rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,0.06);color:var(--g400);transition:all 0.15s;white-space:nowrap;}
+.fbtn:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:var(--white);}
+.fbtn.on{border-color:var(--white);background:var(--white);color:var(--dark);}
+.filter-sep{width:1px;height:24px;background:rgba(255,255,255,0.12);margin:0 6px;}
+.filter-reset{padding:6px 14px;border:none;border-radius:50px;font-size:0.78rem;font-weight:600;cursor:pointer;background:rgba(255,255,255,0.08);color:var(--g400);margin-left:auto;transition:all 0.15s;}
+.filter-reset:hover{background:rgba(196,18,48,0.2);color:#fca5a5;}
 
 /* ═══ RESULTS HEADER ═══ */
 .results-header{display:flex;justify-content:space-between;align-items:center;padding:20px 0 12px;}
@@ -100,8 +100,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .prog-name-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px;}
 .prog-name{font-size:1rem;font-weight:700;color:var(--dark);}
 .prog-abbr{font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:50px;background:var(--g100);color:var(--g500);}
-.prog-what{font-size:0.88rem;color:var(--g500);margin-bottom:10px;}
+.prog-what{font-size:0.88rem;color:var(--g500);margin-bottom:6px;}
+.prog-bestfor{font-size:0.82rem;color:var(--g700);margin-bottom:10px;padding:6px 10px;background:var(--g50);border-radius:var(--r-xs);border-left:2px solid var(--g300);font-style:italic;}
+.prog-bestfor strong{font-style:normal;color:var(--g500);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.3px;}
 .prog-meta{display:flex;gap:6px;flex-wrap:wrap;}
+.prog-bottom-row{display:flex;justify-content:space-between;align-items:center;padding:0 24px 14px;flex-wrap:wrap;gap:8px;}
+.prog-deadline{display:flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:600;color:var(--amber-text);}
+.prog-deadline .dl-icon{font-size:0.9rem;}
+.prog-deadline.dl-closed{color:var(--g400);}
+.prog-deadline.dl-soon{color:var(--red);}
+.prog-cta-row{display:flex;gap:8px;align-items:center;}
+.btn-sm{padding:6px 16px;border-radius:50px;font-size:0.78rem;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-block;border:none;}
+.btn-sm-primary{background:var(--red);color:var(--white);}
+.btn-sm-primary:hover{filter:brightness(1.15);}
+.btn-sm-outline{background:transparent;color:var(--g500);border:1.5px solid var(--g200);}
+.btn-sm-outline:hover{border-color:var(--g400);color:var(--g700);}
+.prog-competitive{font-size:0.75rem;font-weight:700;padding:4px 12px;border-radius:50px;}
+.comp-high{background:var(--pink-light);color:var(--pink-text);}
+.comp-moderate{background:var(--amber-light);color:var(--amber-text);}
+.comp-low{background:var(--green-light);color:var(--green-text);}
 .tag{font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:50px;display:inline-flex;align-items:center;gap:4px;}
 .tag-where{background:var(--blue-light);color:var(--blue-text);}
 .tag-duration{background:var(--purple-light);color:var(--purple-text);}
@@ -196,6 +213,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 @media(max-width:768px){
  .prog-top{grid-template-columns:1fr;gap:10px;}
  .prog-right{align-items:flex-start;flex-direction:row;gap:8px;}
+ .prog-bottom-row{flex-direction:column;align-items:flex-start;}
  .detail-grid{grid-template-columns:1fr;}
  .hero-stats{gap:28px;}
  .filter-inner{padding:12px 14px;}
@@ -975,11 +993,16 @@ function renderPrograms() {
  const tags = [
  p.where ? `<span class="tag tag-where">${p.where}</span>` : '',
  p.duration ? `<span class="tag tag-duration">${p.duration}</span>` : '',
- p.deadline ? `<span class="tag tag-deadline">Deadline: ${p.deadline}</span>` : '',
- competitiveBadge(p.competitive),
- p.spots ? `<span class="tag tag-spots">${p.spots}</span>` : '',
  p.course ? `<span class="tag tag-course">${p.course}</span>` : ''
  ].filter(Boolean).join('');
+
+ // Competitiveness badge for surface
+ const compClass = p.competitive === 'high' ? 'comp-high' : p.competitive === 'low' ? 'comp-low' : 'comp-moderate';
+ const compLabel = p.competitive === 'high' ? 'Competitive' : p.competitive === 'low' ? 'Open to all' : 'Moderate';
+ const compHtml = p.competitive ? `<span class="prog-competitive ${compClass}">${compLabel}</span>` : '';
+
+ // Deadline with urgency
+ const dlHtml = p.deadline ? `<div class="prog-deadline"><span class="dl-icon">&#128197;</span>${p.deadline}</div>` : '';
 
  const gainsHtml = p.gains ? p.gains.map(g => `<li>${g}</li>`).join('') : '';
 
@@ -1001,8 +1024,10 @@ function renderPrograms() {
  <div class="prog-name-row">
  <span class="prog-name">${p.name}</span>
  <span class="prog-abbr">${p.abbr}</span>
+ ${compHtml}
  </div>
  <div class="prog-what">${p.what}</div>
+ ${p.bestFor ? `<div class="prog-bestfor"><strong>Best for: </strong>${p.bestFor}</div>` : ''}
  <div class="prog-meta">${tags}</div>
  </div>
  <div class="prog-right">
@@ -1010,7 +1035,13 @@ function renderPrograms() {
  ${p.fundingNote ? `<span class="funding-note">${p.fundingNote}</span>` : ''}
  </div>
  </div>
- <div class="prog-expand">&#9660;</div>
+ <div class="prog-bottom-row">
+ ${dlHtml}
+ <div class="prog-cta-row">
+ <a href="#" class="btn-sm btn-sm-primary" onclick="event.stopPropagation();">Apply</a>
+ <span class="btn-sm btn-sm-outline" onclick="event.stopPropagation();this.closest('.prog').classList.toggle('open');">Details</span>
+ </div>
+ </div>
  <div class="prog-detail">
  <div class="detail-grid">
  <div class="detail-section">
